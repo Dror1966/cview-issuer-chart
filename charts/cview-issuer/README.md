@@ -1,8 +1,8 @@
 # cview-issuer
 
-![Version: 0.0.26](https://img.shields.io/badge/Version-0.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.26](https://img.shields.io/badge/AppVersion-0.0.26-informational?style=flat-square)
+![Version: 0.0.28](https://img.shields.io/badge/Version-0.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.28](https://img.shields.io/badge/AppVersion-0.0.28-informational?style=flat-square)
 
-CView issuser plugin for cert-manager
+C-View issuser plugin for cert-manager
 
 ## Values
 
@@ -26,7 +26,7 @@ CView issuser plugin for cert-manager
 | controllerManager.environment.KUBERNETES_CLUSTER_DOMAIN | string | `"cluster.local"` |  |
 | controllerManager.labels | object | `{"app":"cview-issuer"}` | labels for the controller deployment  |
 | controllerManager.manager.image.repository | string | `"dror1966/cview-issuer"` |  |
-| controllerManager.manager.image.tag | string | `"0.0.26"` |  |
+| controllerManager.manager.image.tag | string | `"0.0.28"` |  |
 | controllerManager.manager.livenessProbe.httpGet.path | string | `"/healthz"` |  |
 | controllerManager.manager.livenessProbe.httpGet.port | int | `8081` |  |
 | controllerManager.manager.livenessProbe.httpGet.scheme | string | `"HTTP"` |  |
@@ -53,7 +53,6 @@ CView issuser plugin for cert-manager
 | metricsService.enabled | bool | `true` |  |
 | metricsService.ports[0].name | string | `"https"` |  |
 | metricsService.ports[0].port | int | `8443` |  |
-
 | metricsService.ports[0].targetPort | string | `"https"` |  |
 | metricsService.type | string | `"ClusterIP"` |  |
 | nodeSelector."kubernetes.io/os" | string | `"linux"` |  |
