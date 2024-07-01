@@ -1,10 +1,14 @@
 crd:
   install: true
 
-# C-View Issuer by securelt ltd 
+openshift:
+  enabled: false # to use permission for Route objects
+  anyuid: true # add permission for anyuid scc
+
+# C-View Issuer by secure-ly ltd 
 
 controllerManager:
-# -- default database for storage of database metadata
+
   # --labels for the controller deployment 
   labels: 
     app: cview-issuer
@@ -14,7 +18,7 @@ controllerManager:
   manager:
     image:
       repository: dror1966/cview-issuer
-      tag: 0.0.28
+      tag: 0.0.29
 
     resources:
       limits:
@@ -61,8 +65,8 @@ controllerManager:
     leader-elect: "true"
     cluster-resource-namespace: cview-issuer # must be the same as chart namespace
     zap-log-level: 1
-    enable-tracing: "true" # false if you want to turn off open tracing
-    tracing-endpoint: "jaeger-collector.jaeger.svc.cluster.local:4318"
+    enable-tracing: "false" # false if you want to turn off open tracing
+    tracing-endpoint: "jaeger-collector.jaeger-operator.svc.cluster.local:4318"
     max-concurrent-reconciles: 1 
 
   containerSecurityContext:
@@ -70,7 +74,7 @@ controllerManager:
     readOnlyRootFilesystem: true
     capabilities:
       drop:
-      - all
+      - ALL
 
   podSecurityContext:
     runAsUser: 1000
